@@ -11,7 +11,7 @@ Phần xử lý AI (RAG, Chat) thuộc về **AI Service** (FastAPI) — repo ri
 
 | Công cụ | Phiên bản |
 |---|---|
-| JDK | 17+ |
+| JDK | 21+ |
 | Maven | 3.9+ |
 | MySQL | 8.0+ |
 | Docker (tùy chọn) | mới nhất |
@@ -50,7 +50,7 @@ src/main/resources/
 
 ---
 
-## 3. Setup lần đầu (cho từng thành viên)
+## 3. Setup lần đầu 
 
 ### Bước 1 – Clone & cấu hình môi trường
 
@@ -101,22 +101,6 @@ git push origin feature/ten-tinh-nang
 # Tạo Pull Request vào develop
 ```
 
-**Khi thêm/sửa bảng database:** KHÔNG sửa trực tiếp `V1__init_schema.sql`. Tạo file migration mới (`V3__them_bang_xyz.sql`) để giữ lịch sử thay đổi rõ ràng — đây cũng là điểm cộng khi báo cáo đồ án.
+**Khi thêm/sửa bảng database:** KHÔNG sửa trực tiếp `V1__init_schema.sql`. Tạo file migration mới (`V3__them_bang_xyz.sql`) để giữ lịch sử thay đổi rõ ràng 
 
 ---
-
-## 5. Phân công gợi ý (nhóm 3 người)
-
-| Thành viên | Module phụ trách |
-|---|---|
-| Người 1 | Auth + User + Notification |
-| Người 2 | Course + Document + tích hợp gọi sang AI Service |
-| Người 3 | Community (Post/Comment) + Learning Progress |
-
----
-
-## 6. Liên kết liên quan
-
-- AI Service (FastAPI + RAG): `<link repo AI Service>`
-- Frontend (ReactJS): `<link repo Frontend>`
-- Database schema gốc: `se_hannah_database.sql`
