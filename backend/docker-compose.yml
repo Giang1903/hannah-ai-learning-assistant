@@ -1,0 +1,28 @@
+version: "3.8"
+
+# Docker Compose nay chi dung cho moi truong DEV cua tung thanh vien.
+# Khi nhom co AI Service (FastAPI) va Frontend, se mo rong file nay
+# thanh docker-compose chung cho ca he thong (xem Chuong 2 - Docker).
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: se-hannah-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: se_hannah
+      MYSQL_CHARACTER_SET_SERVER: utf8mb4
+      MYSQL_COLLATION_SERVER: utf8mb4_unicode_ci
+    ports:
+      - "3306:3306"
+    volumes:
+      - se_hannah_mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  se_hannah_mysql_data:
