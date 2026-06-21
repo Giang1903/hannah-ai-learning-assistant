@@ -1,4 +1,4 @@
-# Virtual environment - KHONG commit, qua nang va khac nhau tren tung may
+# Virtual environment 
 venv/
 env/
 .venv/
@@ -13,11 +13,11 @@ __pycache__/
 .env
 .env.local
 
-# ChromaDB local data (neu chay khong qua Docker)
+# ChromaDB local data 
 chroma_data/
 *.sqlite3
 
-# File tai lieu nguoi dung upload (luu tam truoc khi xu ly RAG)
+# File tai lieu nguoi dung upload 
 uploads/
 temp_uploads/
 

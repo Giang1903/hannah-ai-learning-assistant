@@ -84,26 +84,3 @@ uvicorn app.main:app --reload
 
 ---
 
-## 3. Lưu ý quan trọng
-
-**`venv/` KHÔNG được commit lên Git** — đã có trong `.gitignore`. Mỗi thành viên tự tạo venv riêng trên máy mình bằng Bước 1–3.
-
-**JWT_SECRET phải đồng bộ với Backend** — AI Service không tự phát hành token, chỉ xác minh token do Backend (Spring Boot) cấp khi người dùng đăng nhập.
-
-**`document_id` và `course_id`** được Backend gửi sang khi gọi `/document/index`, dùng để gắn metadata cho từng chunk trong ChromaDB — phục vụ việc lọc tài liệu theo khóa học khi truy vấn.
-
----
-
-## 4. Việc cần làm tiếp theo
-
-- [ ] Test thử `/chat` qua Swagger UI với 1 tài liệu mẫu đã index
-- [ ] Viết thêm logic lưu `chat_messages` (gọi ngược về Backend hoặc lưu trực tiếp nếu được giao)
-- [ ] Xử lý lỗi khi `GOOGLE_API_KEY` hết quota / sai key
-- [ ] Thêm endpoint xóa tài liệu khỏi ChromaDB khi giảng viên xóa document
-
----
-
-## 5. Liên kết liên quan
-
-- Backend (Spring Boot): `<link repo Backend>`
-- Frontend (ReactJS): `<link repo Frontend>`
