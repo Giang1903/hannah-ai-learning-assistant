@@ -1,0 +1,33 @@
+# Virtual environment - KHONG commit, qua nang va khac nhau tren tung may
+venv/
+env/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# Environment variables / secrets
+.env
+.env.local
+
+# ChromaDB local data (neu chay khong qua Docker)
+chroma_data/
+*.sqlite3
+
+# File tai lieu nguoi dung upload (luu tam truoc khi xu ly RAG)
+uploads/
+temp_uploads/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Test
+.pytest_cache/
+.coverage

@@ -1,0 +1,65 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: se-hannah-backend
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/se_hannah?useUnicode=true&characterEncoding=utf8mb4&serverTimezone=Asia/Ho_Chi_Minh
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:root}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate   # Database da co schema san (se_hannah_database.sql), KHONG de Hibernate tu sinh bang
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    open-in-view: false
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+# Cau hinh JWT
+app:
+  jwt:
+    secret: ${JWT_SECRET:CHANGE_THIS_SECRET_KEY_IN_PRODUCTION_MIN_256_BITS_LONG_abc123xyz}
+    access-token-expiration: 3600000      # 1 gio (ms)
+    refresh-token-expiration: 604800000   # 7 ngay (ms)
+
+  # Dia chi AI Service (FastAPI) de Backend goi sang khi can
+  ai-service:
+    base-url: ${AI_SERVICE_URL:http://localhost:8000}
+
+  # CORS - cho phep Frontend goi API
+  cors:
+    allowed-origins: ${CORS_ORIGINS:http://localhost:5173,http://localhost:3000}
+
+  # Thu muc luu file tam thoi (truoc khi day len storage/AI service)
+  upload:
+    dir: ${UPLOAD_DIR:./uploads}
+
+# Swagger / OpenAPI
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  level:
+    com.sehannah.backend: DEBUG
+    org.hibernate.SQL: DEBUG
